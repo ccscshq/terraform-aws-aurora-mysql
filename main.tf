@@ -20,6 +20,8 @@ resource "aws_rds_cluster" "this" {
   skip_final_snapshot             = var.rds_skip_final_snapshot
   allow_major_version_upgrade     = var.rds_allow_major_version_upgrade
   backtrack_window                = var.rds_backtrack_window
+  storage_encrypted               = var.rds_storage_encrypted
+  kms_key_id                      = var.rds_kms_key_arn
 
   lifecycle {
     # https://registry.terraform.io/providers/hashicorp/aws/5.22.0/docs/resources/rds_cluster#availability_zones

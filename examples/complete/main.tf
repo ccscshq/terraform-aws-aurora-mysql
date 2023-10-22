@@ -24,6 +24,8 @@ module "aurora_mysql" {
   rds_allow_major_version_upgrade  = false
   rds_backup_retention_period      = 7
   rds_backtrack_window             = 0
+  rds_storage_encrypted            = true
+  rds_kms_key_arn                  = aws_kms_key.this.arn
 
   rds_instance_type       = "db.t3.medium"
   rds_monitoring_interval = 15
@@ -56,4 +58,26 @@ module "aurora_mysql" {
   rds_source_security_group_id = module.network.default_security_group_id
 
   rds_cloudwatch_logs_retention_in_days = 30
+}
+
+resource "aws_kms_key" "this" {
+  description             = "KMS Key for Aurora MySQL"
+  deletion_window_in_days = 7
+}
+
+resource "aws_kms_key_policy" "this" {
+  key_id = aws_kms_key.this.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          AWS = "*"
+        }
+        Action   = "kms:*"
+        Resource = "*"
+      },
+    ]
+  })
 }

@@ -66,6 +66,16 @@ variable "rds_backtrack_window" {
     error_message = "Aurora MySQL Backtrack window must be set between 0 and 259200 seconds."
   }
 }
+variable "rds_storage_encrypted" {
+  description = "Whether to encrypt RDS storage."
+  type        = bool
+  default     = false
+}
+variable "rds_kms_key_arn" {
+  description = "Arn of kms key to encrypt RDS storage."
+  type        = string
+  default     = null
+}
 
 # rds instance
 variable "rds_instance_type" {

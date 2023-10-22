@@ -56,6 +56,7 @@ No modules.
 | <a name="input_rds_engine_version"></a> [rds\_engine\_version](#input\_rds\_engine\_version) | Engine version of Aurora MySQL. | `string` | n/a | yes |
 | <a name="input_rds_instance_count"></a> [rds\_instance\_count](#input\_rds\_instance\_count) | The number of db instances. | `number` | n/a | yes |
 | <a name="input_rds_instance_type"></a> [rds\_instance\_type](#input\_rds\_instance\_type) | Instance class type of DB instances. | `string` | n/a | yes |
+| <a name="input_rds_kms_key_arn"></a> [rds\_kms\_key\_arn](#input\_rds\_kms\_key\_arn) | Arn of kms key to encrypt RDS storage. | `string` | `null` | no |
 | <a name="input_rds_master_username"></a> [rds\_master\_username](#input\_rds\_master\_username) | Username of Aurora MySQL. | `string` | `null` | no |
 | <a name="input_rds_monitoring_interval"></a> [rds\_monitoring\_interval](#input\_rds\_monitoring\_interval) | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. | `number` | `15` | no |
 | <a name="input_rds_preferred_backup_window"></a> [rds\_preferred\_backup\_window](#input\_rds\_preferred\_backup\_window) | Backup window of Aurora MySQL. | `string` | `"19:00-19:30"` | no |
@@ -63,6 +64,7 @@ No modules.
 | <a name="input_rds_private_subnet_ids"></a> [rds\_private\_subnet\_ids](#input\_rds\_private\_subnet\_ids) | IDs of DB subnets. | `set(string)` | n/a | yes |
 | <a name="input_rds_skip_final_snapshot"></a> [rds\_skip\_final\_snapshot](#input\_rds\_skip\_final\_snapshot) | Whether to skip to create final snapshot. | `bool` | `false` | no |
 | <a name="input_rds_source_security_group_id"></a> [rds\_source\_security\_group\_id](#input\_rds\_source\_security\_group\_id) | ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID. | `string` | n/a | yes |
+| <a name="input_rds_storage_encrypted"></a> [rds\_storage\_encrypted](#input\_rds\_storage\_encrypted) | Whether to encrypt RDS storage. | `bool` | `false` | no |
 | <a name="input_rds_vpc_id"></a> [rds\_vpc\_id](#input\_rds\_vpc\_id) | ID of VPC. | `string` | n/a | yes |
 
 ## Outputs

@@ -8,6 +8,14 @@ module "network" {
   create_private_subnets = true
 }
 
+module "bastion" {
+  source = "git@github.com:ccscshq/terraform-aws-bastion.git?ref=v0.1.1"
+
+  prefix        = local.prefix
+  ec2_vpc_id    = module.network.vpc_id
+  ec2_subnet_id = module.network.private_subnet_ids[0]
+}
+
 module "aurora_mysql" {
   source = "../.."
 
@@ -55,7 +63,7 @@ module "aurora_mysql" {
   rds_private_subnet_ids = module.network.private_subnet_ids
 
   rds_vpc_id                   = module.network.vpc_id
-  rds_source_security_group_id = module.network.default_security_group_id
+  rds_source_security_group_id = module.bastion.security_group_id
 
   rds_cloudwatch_logs_retention_in_days = 30
 }

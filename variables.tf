@@ -119,9 +119,9 @@ variable "rds_vpc_id" {
   description = "ID of VPC."
   type        = string
 }
-variable "rds_source_security_group_id" {
-  description = "ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID."
-  type        = string
+variable "rds_source_security_group_ids" {
+  description = "Set of the ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID."
+  type        = set(string)
 }
 
 # cw

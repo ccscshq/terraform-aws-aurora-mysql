@@ -9,12 +9,14 @@ resource "aws_security_group" "this" {
 }
 
 resource "aws_security_group_rule" "ingress" {
+  for_each = var.rds_source_security_group_ids
+
   security_group_id        = aws_security_group.this.id
   type                     = "ingress"
   from_port                = 3306
   to_port                  = 3306
   protocol                 = "tcp"
-  source_security_group_id = var.rds_source_security_group_id
+  source_security_group_id = each.value
 }
 
 resource "aws_security_group_rule" "egress" {

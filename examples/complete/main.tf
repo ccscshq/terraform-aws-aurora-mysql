@@ -11,9 +11,10 @@ module "network" {
 module "bastion" {
   source = "git@github.com:ccscshq/terraform-aws-bastion.git?ref=v0.1.1"
 
-  prefix        = local.prefix
-  ec2_vpc_id    = module.network.vpc_id
-  ec2_subnet_id = module.network.private_subnet_ids[0]
+  prefix               = local.prefix
+  ec2_vpc_id           = module.network.vpc_id
+  ec2_subnet_id        = module.network.private_subnet_ids[0]
+  ec2_user_data_base64 = filebase64("${path.module}/user_data.sh")
 }
 
 module "aurora_mysql" {

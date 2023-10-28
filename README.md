@@ -63,7 +63,7 @@ No modules.
 | <a name="input_rds_preferred_maintenance_window"></a> [rds\_preferred\_maintenance\_window](#input\_rds\_preferred\_maintenance\_window) | Maintenance window of Aurora MySQL. | `string` | `"Sat:19:30-Sat:20:00"` | no |
 | <a name="input_rds_private_subnet_ids"></a> [rds\_private\_subnet\_ids](#input\_rds\_private\_subnet\_ids) | IDs of DB subnets. | `set(string)` | n/a | yes |
 | <a name="input_rds_skip_final_snapshot"></a> [rds\_skip\_final\_snapshot](#input\_rds\_skip\_final\_snapshot) | Whether to skip to create final snapshot. | `bool` | `false` | no |
-| <a name="input_rds_source_security_group_ids"></a> [rds\_source\_security\_group\_ids](#input\_rds\_source\_security\_group\_ids) | Set of the ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID. | `set(string)` | n/a | yes |
+| <a name="input_rds_source_security_group_ids"></a> [rds\_source\_security\_group\_ids](#input\_rds\_source\_security\_group\_ids) | Map of the key and ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID. | `map(string)` | n/a | yes |
 | <a name="input_rds_storage_encrypted"></a> [rds\_storage\_encrypted](#input\_rds\_storage\_encrypted) | Whether to encrypt RDS storage. | `bool` | `false` | no |
 | <a name="input_rds_vpc_id"></a> [rds\_vpc\_id](#input\_rds\_vpc\_id) | ID of VPC. | `string` | n/a | yes |
 

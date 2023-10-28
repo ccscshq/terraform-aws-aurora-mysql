@@ -62,8 +62,10 @@ module "aurora_mysql" {
 
   rds_private_subnet_ids = module.network.private_subnet_ids
 
-  rds_vpc_id                    = module.network.vpc_id
-  rds_source_security_group_ids = [module.bastion.security_group_id]
+  rds_vpc_id = module.network.vpc_id
+  rds_source_security_group_ids = {
+    bastion = module.bastion.security_group_id
+  }
 
   rds_cloudwatch_logs_retention_in_days = 30
 }

@@ -120,8 +120,8 @@ variable "rds_vpc_id" {
   type        = string
 }
 variable "rds_source_security_group_ids" {
-  description = "Set of the ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID."
-  type        = set(string)
+  description = "Map of the key and ID of the source security group, allowing access to Aurora MySQL from the security group specified by this ID."
+  type        = map(string)
 }
 
 # cw
